@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {ApolloClient,
+  ApolloProvider, //component to connect react with gql
+  InMemoryCache} from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
+
+const client = new ApolloClient({
+  uri: "https://rickandmortyapi.com/graphql", //this is telling us that this is our endpoint
+  cache: new InMemoryCache(), //after making one memory, if we'll create same query again, it will hit the cache and not the gql server again 
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <ApolloProvider client={client} > 
+       <App />
+      </ApolloProvider>
   </React.StrictMode>
 );
 
