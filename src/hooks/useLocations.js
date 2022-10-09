@@ -1,8 +1,12 @@
 import {useQuery, gql} from "@apollo/client";
+//$page: Page
+// page: $page
 
+//$page: Int!
+//(page: $page)
 const GET_LOCATIONS = gql`
-query GetLocations{
-    locations{
+query GetLocations($page: Int!){
+    locations(page: $page){
         results{
             name
             type
@@ -11,13 +15,43 @@ query GetLocations{
                 name
             }
         }
+        info{
+            count
+            pages
+            next
+            prev
+          }
     }
 }
 `
 
-export const useLocations = () => {
-    const {data, error, loading} = useQuery(GET_LOCATIONS, {
+const GET_EPISODES = gql`
+query GetEpisodes($page: Int!){
+    episodes(page: $page){
+        results{
+          id
+          name
+          air_date
+          episode
+          characters{
+            name
+          }
+        }
+        info{
+            count
+            pages
+            next
+            prev
+          }
+    }
+}
+`
 
+export const useLocations = (pageNo) => {
+    const {data, error, loading} = useQuery(GET_LOCATIONS, {
+         variables:{
+            page: pageNo
+         }
     });
 
     return {
@@ -26,3 +60,18 @@ export const useLocations = () => {
         loading
     };
 };
+
+export const useEpisodes = (pageNo) => {
+    const {data, error, loading} = useQuery(GET_EPISODES, {
+         variables:{
+            page: pageNo
+         }
+    });
+
+    return {
+        data,
+        error,
+        loading
+    };
+};
+
