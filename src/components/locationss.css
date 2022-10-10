@@ -1,16 +1,16 @@
-a{
+.namelink{
     text-decoration: none;
     color: white;
 }
 
-a:link, a:visited {
+.namelink:link, .namelink:visited {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
   }
   
-  a:hover, a:active {
+  .namelink:hover, .namelink:active {
     background-color: white;
     color: black;
   }

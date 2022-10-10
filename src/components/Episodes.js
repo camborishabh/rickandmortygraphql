@@ -44,7 +44,7 @@ export default function Episodes(props) {
                         return (
                         
                           <div className='card'>
-                            <Link to='/episode' state={{id: episode.id}} key={index}><h2>{episode.id} {episode.episode}</h2></Link>                           
+                            <Link to='/episode' state={{id: episode.id}} key={index}><h2>#{episode.id} {episode.episode}</h2></Link>                           
                             <div>
                               <p>Name: {episode.name}</p>
                               <p>Air Date: {episode.air_date}</p>
@@ -54,7 +54,7 @@ export default function Episodes(props) {
                               {episode.characters.map((episode2,index) => {
                                 return (
                                   <>
-                                     <a className='namelink' href={episode2.name} key={index}> {episode2.name} </a>
+                                     <Link className='namelink' to="/Specific" > {episode2.name} </Link>
                                   </>
                                 )
                               })}

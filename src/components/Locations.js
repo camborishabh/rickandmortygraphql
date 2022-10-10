@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import './locations.css';
+import { Link } from 'react-router-dom';
+import './locationss.css';
 import { useLocations } from './useLocations';
 
 export default function Locations() {
@@ -48,12 +49,12 @@ export default function Locations() {
                               <p>Location Type: {location.type}</p>
                               <p>Dimension: {location.dimension}</p>
                             </div>
-                            <p>Residents: </p>
+                            <p>Residents : </p>
                             <div className='namelinkbg'>
                               {location.residents.map((location2, index) => {
                                 return (
                                   <>
-                                     <a className='namelink' key={index} href={location2.name}> {location2.name} </a>
+                                     <Link className='namelink' key={index} to='/specific'> {location2.name} </Link>
                                   </>
                                 )
                               })}

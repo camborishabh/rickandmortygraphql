@@ -1,5 +1,5 @@
 import React from 'react'
-import {  useLocation } from 'react-router-dom';
+import {  Link, useLocation } from 'react-router-dom';
 //import { useEpisode} from '../hooks/useLocations';
 import './episode.css';
 import {useQuery, gql} from "@apollo/client";
@@ -51,10 +51,11 @@ const result = data.episodes.results.find((e)=> e.id === state.id);
              
               {result2.map((item)=>{
                 return(
-                  
+                  <Link  to="/specific" state={{id:item.id}}>
                   <div className='charDiv'>
                     <img src={item.image} alt=''></img>
                     <div>{item.name}</div></div>
+                    </Link>
                 )
               })}
          
