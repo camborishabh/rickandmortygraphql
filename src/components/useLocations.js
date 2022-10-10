@@ -9,6 +9,7 @@ const GET_LOCATIONS = gql`
 query GetLocations($page: Int!){
     locations(page: $page){
         results{
+            id
             name
             type
             dimension

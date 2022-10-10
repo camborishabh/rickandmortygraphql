@@ -50,16 +50,18 @@ export default function Locations() {
                               <p>Dimension: {location.dimension}</p>
                             </div>
                             <p>Residents : </p>
+                            <Link to="/specific" state={{id:location.id}}>
                             <div className='namelinkbg'>
                               {location.residents.map((location2, index) => {
                                 return (
                                   <>
-                                     <Link className='namelink' key={index} to='/specific'> {location2.name} </Link>
+                                     <div className='namelink' key={index} > {location2.name} </div>
                                   </>
                                 )
                               })}
                              
                             </div>
+                            </Link>
                           </div>
                         )})}
               

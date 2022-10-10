@@ -48,16 +48,17 @@ const result = data.episodes.results.find((e)=> e.id === state.id);
              <h2>Air Date: {result.air_date}</h2>
              <section>
               <h2 className='subTitleName'>Characters Appeared:</h2>
+              <Link  to="/specific"  state={{id:result.id}}>
              
               {result2.map((item)=>{
                 return(
-                  <Link  to="/specific" state={{id:item.id}}>
                   <div className='charDiv'>
                     <img src={item.image} alt=''></img>
                     <div>{item.name}</div></div>
-                    </Link>
                 )
               })}
+                    </Link>
+
          
              </section>
           </section>

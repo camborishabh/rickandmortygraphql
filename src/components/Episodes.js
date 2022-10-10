@@ -50,16 +50,18 @@ export default function Episodes(props) {
                               <p>Air Date: {episode.air_date}</p>
                             </div>
                             <p>Characters Appeared: </p>
+                            <Link  to="/specific" state={{id:episode.id}}>
                             <div className='namelinkbg'>
                               {episode.characters.map((episode2,index) => {
                                 return (
                                   <>
-                                     <Link className='namelink' to="/Specific" > {episode2.name} </Link>
+                                     <div className='namelink'> {episode2.name} </div>
                                   </>
                                 )
                               })}
                              
                             </div>
+                            </Link>
                           </div>
                         )})}
               
