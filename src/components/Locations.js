@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../css/locations.css';
-import { useLocations } from '../hooks/useLocations';
+import './locations.css';
+import { useLocations } from './useLocations';
 
 export default function Locations() {
   
@@ -39,10 +39,10 @@ export default function Locations() {
       </section>
       <section className='cardlayout'>
       
-       {data && data.locations.results.map(location => {
+       {data && data.locations.results.map((location,index) => {
                         return (
                         
-                          <div className='card'>
+                          <div className='card' key={index}>
                             <h2>{location.name}</h2>
                             <div>
                               <p>Location Type: {location.type}</p>
@@ -50,10 +50,10 @@ export default function Locations() {
                             </div>
                             <p>Residents: </p>
                             <div className='namelinkbg'>
-                              {location.residents.map(location2 => {
+                              {location.residents.map((location2, index) => {
                                 return (
                                   <>
-                                     <a className='namelink' href={location2.name}> {location2.name} </a>
+                                     <a className='namelink' key={index} href={location2.name}> {location2.name} </a>
                                   </>
                                 )
                               })}

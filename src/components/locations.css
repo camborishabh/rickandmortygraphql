@@ -3,6 +3,18 @@ a{
     color: white;
 }
 
+a:link, a:visited {
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: white;
+    color: black;
+  }
+
 .bgImg{
     position: fixed;
     inset: 0px;
@@ -137,3 +149,4 @@ a{
     margin: 0;
     color: #ffffff;
 }
+

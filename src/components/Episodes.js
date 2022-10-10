@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import '../css/episodes.css';
-import { useEpisodes,} from '../hooks/useLocations';
+import './episodes.css';
+import { useEpisodes,} from './useLocations';
 
-export default function Episodes() {
+export default function Episodes(props) {
   
   const [pageNo, setPageNo] = useState(1);
   const {data, error, loading} = useEpisodes(pageNo);
@@ -40,21 +40,21 @@ export default function Episodes() {
       </section>
       <section className='cardlayout'>
       
-       {data && data.episodes.results.map(episode => {
+       {data && data.episodes.results.map((episode,index) => {
                         return (
                         
                           <div className='card'>
-                            <a href='#'><h2>{episode.id} {episode.episode}</h2></a>                           
+                            <Link to='/episode' state={{id: episode.id}} key={index}><h2>{episode.id} {episode.episode}</h2></Link>                           
                             <div>
                               <p>Name: {episode.name}</p>
                               <p>Air Date: {episode.air_date}</p>
                             </div>
                             <p>Characters Appeared: </p>
                             <div className='namelinkbg'>
-                              {episode.characters.map(episode2 => {
+                              {episode.characters.map((episode2,index) => {
                                 return (
                                   <>
-                                     <a className='namelink' href={episode2.name}> {episode2.name} </a>
+                                     <a className='namelink' href={episode2.name} key={index}> {episode2.name} </a>
                                   </>
                                 )
                               })}

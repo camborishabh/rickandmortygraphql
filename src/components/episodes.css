@@ -3,6 +3,18 @@ a{
     color: white;
 }
 
+.namelink:link, namelink:visited {
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+.namelink:hover, namelink:active {
+    background-color: white;
+    color: black;
+  }
+
 .bgImg{
     position: fixed;
     inset: 0px;
